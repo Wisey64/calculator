@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 </head>
 <body>
+    <h1>Calculator</h1>
+    <div class="container">
+        <div class="calc body">
+            <div class="display">1+1</div>
+            <div class="buttons">
+                <button class="7"></button>
+                <button class="8"></button>
+                <button class="9"></button>
+                <button class="+"></button>
+                <button class="4"></button>
+                <button class="5"></button>
+                <button class="6"></button>
+                <button class="-"></button>
+                <button class="1"></button>
+                <button class="2"></button>
+                <button class="3"></button>
+                <button class="*"></button>
+                <button class="clear"></button>
+                <button class="0"></button>
+                <button class="="></button>
+                <button class="/"></button>
+                
+            </div>
+
+        </div>
+    </div>
 
 
 
@@ -36,6 +63,22 @@
            return a / b
 
 };
+    const operate = function(num1,operator,num2){
+        
+        if(operator== "+" ){
+            add(num1,num2)
+        }
+        else if(operator=="-"){
+            subtract(num1,num2)
+        }
+        else if(operator=="*"){
+            multiply(num1,num2)
+        }
+        else if(operator=="/"){
+            divide(num1,num2)
+        }
+    }
+    console.log(operate(10,"+",5))
 
     
 
