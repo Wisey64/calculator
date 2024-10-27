@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/public-pixel');
 .body{display: flex;
 flex-direction: column;
 justify-content: center;
@@ -69,13 +70,16 @@ align-items: center;}
     border: 1px,black,solid;
     padding-right: 10px;
     background-color: rgba(156, 253, 221, 0.822);
-    font-size: 25px;
+    font-size: 15px;
     border-radius: 15px;
     border: none;
   box-shadow: 0 9px #555555;
     
     outline: none;
 
+}
+p{                                                                              font-family: 'Public Pixel', sans-serif;
+    font-family: 'Public Pixel', sans-serif;
 }
 button{
     width: 80px;
