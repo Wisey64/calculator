@@ -15,7 +15,7 @@
     <div class="container">
         <div class="calcbody">
             <div class="top">
-                <button class="C">C</button>
+                <button class="C num">C</button>
                 <div class="display">
                     <p id="dpara">0</p>
                 </div>
@@ -89,20 +89,22 @@
         }
     }
     
-// event lisiteners for buttons to change the text content of the display
-const numbers=document.querySelectorAll(".num")
-const dpara=document.getElementById("dpara")
-numbers.forEach(button => {
-    button.addEventListener("click",function(){
-     dpara.textContent += button.textContent
-    })
-})
-// for the C button
-const C=document.querySelector(".C")
-C.addEventListener("click",function(){
-    dpara.textContent = 0
-})
-    
+// Select all buttons with the "num" class, including "C"
+const buttons = document.querySelectorAll(".num");
+const dpara = document.getElementById("dpara");
+
+buttons.forEach(button => {
+    button.addEventListener("click", function () {
+        if (button.classList.contains("C")) {
+            // Clear the display if the "C" button is clicked
+            dpara.textContent = "";
+        } else {
+            // Otherwise, append the clicked number to the display
+            dpara.textContent += button.textContent;
+        }
+    });
+});
+
 
 
     </script>
