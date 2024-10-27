@@ -20,7 +20,7 @@ align-items: center;}
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px,black,solid;
+    
      width: 500px;
     height: 600px;
     
@@ -39,7 +39,7 @@ align-items: center;}
     border-radius: 15px;
     border: none;
   box-shadow: 0 9px #555555;
-    cursor: pointer;
+    
     outline: none;
     
 }
@@ -55,7 +55,7 @@ align-items: center;}
     border-radius: 15px;
     border: none;
   
-    cursor: pointer;
+    
     outline: none;
     
 }
@@ -73,7 +73,7 @@ align-items: center;}
     border-radius: 15px;
     border: none;
   box-shadow: 0 9px #555555;
-    cursor: pointer;
+    
     outline: none;
 
 }
