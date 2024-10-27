@@ -99,3 +99,7 @@ button:active{background-color:rgba(206, 206, 206, 0.315) ;
 }
 .C:hover{background-color: rgba(255, 84, 84, 0.74);}
 .C:active{background-color: rgba(255, 84, 84, 0.74);}
+.op{
+    background-color: rgba(24, 124, 255, 0.555);
+}
+.op:hover{background-color:rgb(4, 92, 207) ;}
