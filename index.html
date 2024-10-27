@@ -33,7 +33,7 @@
                 <button class="2 num">2</button>
                 <button class="3 num">3</button>
                 <button class="* op num">*</button>
-                <button class=".">.</button>
+                <button class=". num">.</button>
                 <button class="0 num">0</button>
                 <button class="=">=</button>
                 <button class="/ op num">/</button>
@@ -97,7 +97,11 @@ numbers.forEach(button => {
      dpara.textContent += button.textContent
     })
 })
-
+// for the C button
+const C=document.querySelector(".C")
+C.addEventListener("click",function(){
+    dpara.textContent = 0
+})
     
 
 
