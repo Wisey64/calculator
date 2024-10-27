@@ -17,26 +17,26 @@
             <div class="top">
                 <button class="C">C</button>
                 <div class="display">
-                    <p>im display</p>
+                    <p id="dpara">0</p>
                 </div>
             </div>
             <div class="buttons">
-                <button class="7">7</button>
-                <button class="8">8</button>
-                <button class="9">9</button>
-                <button class="+ op">+</button>
-                <button class="4">4</button>
-                <button class="5">5</button>
-                <button class="6">6</button>
-                <button class="- op">-</button>
-                <button class="1">1</button>
-                <button class="2">2</button>
-                <button class="3">3</button>
-                <button class="* op">*</button>
+                <button class="7 num">7</button>
+                <button class="8 num">8</button>
+                <button class="9 num">9</button>
+                <button class="+ op num">+</button>
+                <button class="4 num">4</button>
+                <button class="5 num">5</button>
+                <button class="6 num">6</button>
+                <button class="- op num">-</button>
+                <button class="1 num">1</button>
+                <button class="2 num">2</button>
+                <button class="3 num">3</button>
+                <button class="* op num">*</button>
                 <button class=".">.</button>
-                <button class="0">0</button>
+                <button class="0 num">0</button>
                 <button class="=">=</button>
-                <button class="/ op">/</button>
+                <button class="/ op num">/</button>
                 
             </div>
 
@@ -89,7 +89,14 @@
         }
     }
     
-    
+// event lisiteners for buttons to change the text content of the display
+const numbers=document.querySelectorAll(".num")
+const dpara=document.getElementById("dpara")
+numbers.forEach(button => {
+    button.addEventListener("click",function(){
+     dpara.textContent += button.textContent
+    })
+})
 
     
 

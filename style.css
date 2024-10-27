@@ -78,8 +78,12 @@ align-items: center;}
     outline: none;
 
 }
-p{                                                                              font-family: 'Public Pixel', sans-serif;
+p{  
     font-family: 'Public Pixel', sans-serif;
+    max-width: 10ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 button{
     width: 80px;
