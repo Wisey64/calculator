@@ -35,7 +35,7 @@
                 <button class="* op num">*</button>
                 <button class=". num">.</button>
                 <button class="0 num">0</button>
-                <button class="=">=</button>
+                <button class="= num">=</button>
                 <button class="/ op num">/</button>
                 
             </div>
@@ -57,19 +57,26 @@
     let firstNumber=""
     let operator=""
     let secondNumber=""
+    let displayvalue=""
+    let res=""
+
     // Basic math functions
     const add = function (a, b) {
-           return a + b;
+         res = a + b
+           return res;
 };
 
     const subtract = function (a, b) {
-           return a - b;
+         res = a - b
+        return res;
 };
     const multiply = function (a,b) {
-           return a * b
+         res = a * b
+        return res;
 };
     const divide = function (a,b){
-           return a / b
+         res = a / b
+        return res;
 
 };
 // a function to check for the operator used and call a math eqation based on it
@@ -98,10 +105,29 @@ buttons.forEach(button => {
         if (button.classList.contains("C")) {
             // Clear the display if the "C" button is clicked
             dpara.textContent = "";
-        } else {
-            // Otherwise, append the clicked number to the display
-            dpara.textContent += button.textContent;
+            firstNumber = "";
+            secondNumber = "";
+            operator = "";
+            displayvalue=""
+            res=""
+        } else if(button.classList.contains("=")) {
+            // Call the operate function
+            res = operate(firstNumber,operator,secondNumber)
+            dpara.textContent=res
+
         }
+        
+        else {
+            // Otherwise, append the clicked number to the display
+            displayvalue= dpara.textContent += button.textContent;
+            let parts = displayvalue.split(/([+\-*/])/);
+            intparts = parts.map(element=>+element);
+            firstNumber = intparts[0];
+            operator = parts[1];
+            secondNumber = intparts[2];
+            
+        }
+        
     });
 });
 
