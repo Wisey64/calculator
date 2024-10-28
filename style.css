@@ -49,6 +49,7 @@
     width: 400px;
     height: 400px;
     padding: 10px;
+    border: 0.1px black solid;
     background-color: rgba(0, 0, 0, 0.418);
     border-radius: 15px;
     box-shadow: 
@@ -69,6 +70,7 @@
     box-shadow: 
         0 6px 10px rgba(0, 0, 0, 0.3), 
         0 12px 24px rgba(0, 0, 0, 0.15);
+        border: 0.1px black solid;
 }
 
 /* Display Panel */
@@ -81,6 +83,7 @@
     padding-right: 10px;
     background-color: rgba(156, 253, 221, 0.822);
     font-size: 20px;
+    border: 0.1px black solid;
     border-radius: 15px;
     box-shadow: 
         0 4px 8px rgba(0, 0, 0, 0.3), 

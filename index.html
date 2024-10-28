@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <link href="https://fonts.cdnfonts.com/css/public-pixel" rel="stylesheet">
-                
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,102 +36,104 @@
                 <button class="0 num">0</button>
                 <button class="= num">=</button>
                 <button class="/ op num">/</button>
-                
             </div>
-
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
     <script>
-    //variables for the display
-    let firstNumber=""
-    let operator=""
-    let secondNumber=""
-    let displayvalue=""
-    let res=""
+        //variables for the display
+        let firstNumber = "";
+        let operator = "";
+        let secondNumber = "";
+        let res = "";
+        // to check if op buttons are pressed more than once
+        let operatorPressedOnce = false;
 
-    // Basic math functions
-    const add = function (a, b) {
-         res = a + b
-           return res;
+       // Basic math functions
+const add = function (a, b) {
+    return a + b;
 };
 
-    const subtract = function (a, b) {
-         res = a - b
-        return res;
+const subtract = function (a, b) {
+    return a - b;
 };
-    const multiply = function (a,b) {
-         res = a * b
-        return res;
-};
-    const divide = function (a,b){
-         res = a / b
-        return res;
 
+const multiply = function (a, b) {
+    return a * b;
 };
-// a function to check for the operator used and call a math eqation based on it
-    const operate = function(num1,operator,num2){
-        
-        if(operator== "+" ){
-            return add(num1,num2)
-        }
-        else if(operator=="-"){
-            return subtract(num1,num2)
-        }
-        else if(operator=="*"){
-            return multiply(num1,num2)
-        }
-        else if(operator=="/"){
-            return divide(num1,num2)
-        }
+
+const divide = function (a, b) {
+    if (b === 0) {
+        return "ERROR";
     }
-    
-// Select all buttons with the "num" class, including "C"
-const buttons = document.querySelectorAll(".num");
-const dpara = document.getElementById("dpara");
+    return a / b;
+};
 
-buttons.forEach(button => {
-    button.addEventListener("click", function () {
-        if (button.classList.contains("C")) {
-            // Clear the display if the "C" button is clicked
-            dpara.textContent = "";
-            firstNumber = "";
-            secondNumber = "";
-            operator = "";
-            displayvalue=""
-            res=""
-        } else if(button.classList.contains("=")) {
-            // Call the operate function
-            res = operate(firstNumber,operator,secondNumber)
-            dpara.textContent=res
+// A function to check for the operator used and call a math equation based on it
+const operate = function (num1, operator, num2) {
+    const a = parseFloat(num1);
+    const b = parseFloat(num2);
+    if (operator === "+") {
+        return add(a, b);
+    } else if (operator === "-") {
+        return subtract(a, b);
+    } else if (operator === "*") {
+        return multiply(a, b);
+    } else if (operator === "/") {
+        return divide(a, b);
+    }
+    return null;
+};
 
-        }
-        
-        else {
-            // Otherwise, append the clicked number to the display
-            displayvalue= dpara.textContent += button.textContent;
-            let parts = displayvalue.split(/([+\-*/])/);
-            intparts = parts.map(element=>+element);
-            firstNumber = intparts[0];
-            operator = parts[1];
-            secondNumber = intparts[2];
-            
-        }
-        
-    });
-});
-
-
-
+        //get the p element (display)
+        const dpara = document.getElementById("dpara");
+        const buttons = document.querySelectorAll(".num");
+// apply event listeners to all buttons based on conditions
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                const value = button.textContent;
+                
+                // basically erase everything
+                if (button.classList.contains("C")) {
+                    firstNumber = secondNumber = operator = res = "";
+                    operatorPressedOnce = false;
+                    dpara.textContent = "0";
+                // the = button checks for the variables first before calling operate
+                } else if (button.classList.contains("=")) {
+                    if (firstNumber && operator && secondNumber) {
+                        res = operate(firstNumber, operator, secondNumber);
+                        dpara.textContent = res;
+                        firstNumber = res;
+                        secondNumber = "";
+                        operator = "";
+                        operatorPressedOnce = false;
+                    }
+                // the op buttons make sure to do one equasion at a time and act as = button when pressed while an opreation is in act
+                } else if (button.classList.contains("op")) {
+                    if (!operatorPressedOnce) {
+                        operator = value;
+                        operatorPressedOnce = true;
+                        dpara.textContent += ` ${operator} `;
+                    } else {
+                        if (firstNumber && operator && secondNumber) {
+                            res = operate(firstNumber, operator, secondNumber);
+                            dpara.textContent = res + ` ${value} `;
+                            firstNumber = res;
+                            secondNumber = "";
+                            operator = value;
+                        }
+                    }
+                } else {
+                    if (!operatorPressedOnce) {
+                        firstNumber += value;
+                        dpara.textContent = firstNumber;
+                    } else {
+                        secondNumber += value;
+                        dpara.textContent = `${firstNumber} ${operator} ${secondNumber}`;
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
